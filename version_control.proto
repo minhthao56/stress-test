@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package mastermgmt.v1;
+
+message VerifyAppVersionRequest {
+}
+
+message VerifyAppVersionResponse {
+  bool isValid = 1;
+}
+
+// services
+service VersionControlReaderService {
+    rpc VerifyAppVersion(VerifyAppVersionRequest) returns (VerifyAppVersionResponse);
+}

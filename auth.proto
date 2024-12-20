@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package usermgmt.v2;
+
+import "google/protobuf/timestamp.proto";
+
+
+message GetAuthInfoRequest {
+  string username = 1;
+  string domain_name = 2;
+}
+message GetAuthInfoResponse {
+  string login_email = 1;
+  string tenant_id = 2;
+  string user_role = 3;
+  google.protobuf.Timestamp deactivated_at = 4;
+}
+service AuthService {
+  rpc GetAuthInfo(GetAuthInfoRequest) returns (GetAuthInfoResponse);
+}

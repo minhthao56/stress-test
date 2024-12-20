@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package bob.v1;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
+
+
+service UserModifierService {
+  rpc ExchangeToken(ExchangeTokenRequest) returns (ExchangeTokenResponse) {
+    option (google.api.http) = {
+      post: "/bob/api/v1/proxy/exchange-token"
+      body: "*"
+    };
+  };
+}
+
+message ExchangeTokenRequest {
+  string token = 1;
+}
+
+message ExchangeTokenResponse {
+  string token = 1;
+}
